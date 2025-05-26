@@ -1,10 +1,10 @@
 // character.js
 
 Promise.all([
-  fetch('/SN_Dogam/dogam_info/character_info.json').then(res => res.json()),
-  fetch('/SN_Dogam/dogam_info/character_profile.json').then(res => res.json()),
-  fetch('/SN_Dogam/dogam_info/character_skill.json').then(res => res.json()),
-  fetch('/SN_Dogam/dogam_info/character_tooltip.json').then(res => res.json())
+  fetch('dogam_info/character_info.json').then(res => res.json()),
+  fetch('dogam_info/character_profile.json').then(res => res.json()),
+  fetch('dogam_info/character_skill.json').then(res => res.json()),
+  fetch('dogam_info/character_tooltip.json').then(res => res.json())
 ]).then(([characterData, profileData, skillData, tooltipData]) => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');

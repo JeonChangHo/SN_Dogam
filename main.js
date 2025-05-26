@@ -9,7 +9,7 @@ let selected_data1 = "스페셜";
 let selected_data2 = "세븐나이츠";
 
 // JSON 데이터 불러오기
-fetch('../dogam_info/character_info.json')
+fetch('/SN_Dogam/dogam_info/character_info.json')
   .then(response => response.json())
   .then(data => {
     characters = data;
@@ -76,7 +76,7 @@ function renderCards() {
     card.className = 'card';
     card.innerHTML = `<img src="${c['image-sum']}" alt="${c.name}">`;
     card.addEventListener('click', () => {
-      window.location.href = `../character_page/character.html?id=${c.id}`;
+      window.location.href = `/SN_Dogam/character_page/character.html?id=${c.id}`;
     });
     cardContainer.appendChild(card);
   });

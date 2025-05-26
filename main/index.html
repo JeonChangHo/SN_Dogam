@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>영웅 도감</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>세븐나이츠 리버스 도감</h1>
+      <nav>
+        <button id="character-dogam" class="nav-btn active">영웅 도감</button>
+        <button id="pet-dogam" class="nav-btn">펫 도감</button>
+        <button id="equip-dogam" class="nav-btn">장비 도감</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="filters" style="display: flex;">
+        <div id="data1-filters" class="filter-box">
+          <h2>구분 1</h2>
+          <button class="data1-btn" data-type="스페셜">스페셜</button>
+          <button class="data1-btn" data-type="일반 영웅">일반 영웅</button>
+          <button class="data1-btn" data-type="아스드 대륙">아스드 대륙</button>
+          <button class="data1-btn" data-type="아이사 대륙">아이사 대륙</button>
+          <button class="data1-btn" data-type="기타">기타</button>
+        </div>
+
+        <div id="data2-filters" class="filter-box data2-filters">
+          <h2>구분 2</h2>
+          <!-- 구분2 버튼은 JS에서 렌더링 -->
+        </div>
+      </section>
+
+      <section id="cards">
+        <!-- 캐릭터 카드가 여기에 표시됨 -->
+      </section>
+    </main>
+  </div>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js"></script>
+</body>
+</html>

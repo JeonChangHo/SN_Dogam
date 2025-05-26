@@ -1,0 +1,179 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+#back-link {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #333;
+}
+
+.character-container {  /* 캐릭터 정보 부분 */
+  font-size: 1.1rem;
+  display: flex;
+  gap: 100px;   /* 이미지와 캐릭터 정보 사이의 간격 */
+  background-color: #ffffff;  /* 캐릭터 정보 배경색 지정 */
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.character-image img {
+  width: 700px;  /* 캐릭터 이미지 크기 */
+  height: 500px;
+  border-radius: 8px;
+  margin-bottom: 30px; /* 👉 캐릭터 이미지와 썸네일 사이 여백 사이즈 조절 */
+}
+
+.character-details {
+  flex: 1;
+}
+
+.character-details h1 {
+  margin-top: 0;
+}
+
+.character-cards {
+  margin-top: 30px;
+}
+
+.cards-container {
+  display: flex;
+  gap: 10px;
+}
+
+.cards-container .card {
+  width: 100px;
+  height: 130px;
+  background-color: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cards-container .card img {
+  width: 100%;
+  height: auto;
+}
+
+.character-image {
+  text-align: center;
+  margin-bottom: -30px;
+}
+
+.thumbnail-container {
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.thumbnail {
+  max-width: 120px;   /* 원하는 썸네일 사이즈로 조정 */
+  max-height: 160px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  margin: 0 10px; /* 썸네일 끼리 좌우 여백 추가 (원하는 값으로) */
+}
+
+.thumbnail.active {
+  border: 5px solid transparent;
+  border-color: #ff0000;  /* 선택된 썸네일 표시 */
+}
+
+#left-arrow, #right-arrow {
+  font-size: 48px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;   /* 위치 조정 가능하게 */
+  top: -100px;            /* 살짝 위로 올림 (값은 조절 가능) */
+}
+
+h2,h3 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin-top: 50px; 
+}
+
+.character-skills {
+  margin-top: 0px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.skill-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skill-icon img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.skill-type {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.skill-desc {
+  font-size: 1rem;
+  color: #333;
+}
+
+
+/* 툴팁창에 대한 내용 */
+.tooltip-box {
+  position: fixed; /* 꼭 fixed! */
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+[data-tooltip] {
+  cursor: help;
+}

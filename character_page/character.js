@@ -1,5 +1,10 @@
 // character.js
 
+// 경로 앞에 '../'를 붙여주는 함수
+function addBasePath(path) {
+  return path ? '../' + path : '';
+}
+
 Promise.all([
   fetch('../dogam_info/character_info.json').then(res => res.json()),
   fetch('../dogam_info/character_profile.json').then(res => res.json()),
@@ -29,18 +34,20 @@ Promise.all([
 
     let currentIndex = 0;
 
+    // 썸네일 처리
     thumbnails.forEach((thumb, i) => {
       const keyThumb = imageMap[i].thumb;
-      thumb.src = character[keyThumb] ? '../' + character[keyThumb] : '';
+      thumb.src = addBasePath(character[keyThumb]);
       thumb.addEventListener('click', () => {
         currentIndex = i;
         updateImage(currentIndex);
       });
     });
 
+    // 메인 이미지 처리
     function updateImage(index) {
       const keyFull = imageMap[index].full;
-      mainImg.src = character[keyFull] ? '../' + character[keyFull] : '';
+      mainImg.src = addBasePath(character[keyFull]);
       thumbnails.forEach((thumb, i) => {
         thumb.classList.toggle('active', i === index);
       });
@@ -99,7 +106,6 @@ Promise.all([
         ? mergedData[field].join(', ')
         : mergedData[field] || '-';
 
-      // skill_info2는 툴팁 처리
       if (field === 'skill_info2') {
         value = applyTooltip(value, tooltipData.tooltip_data);
       }
@@ -119,9 +125,9 @@ Promise.all([
       }
     });
 
-    // 스킬 이미지
+    // 스킬 이미지 처리
     const skillImg = document.getElementById('image-skill');
-    skillImg.src = character['image-skill'] ? '../' + character['image-skill'] : '';
+    skillImg.src = addBasePath(character['image-skill']);
 
     // 스킬1 이름
     const skill_name1 = document.getElementById('skill_name');
@@ -140,33 +146,31 @@ Promise.all([
 
     // 툴팁 마우스 이벤트
     document.addEventListener('mouseover', e => {
-  const target = e.target.closest('[data-tooltip]');
-  if (!target) return;
+      const target = e.target.closest('[data-tooltip]');
+      if (!target) return;
 
-  const tooltip = document.createElement('div');
-  tooltip.className = 'tooltip-box';
-  tooltip.innerHTML = target.getAttribute('data-tooltip');
-  document.body.appendChild(tooltip);
+      const tooltip = document.createElement('div');
+      tooltip.className = 'tooltip-box';
+      tooltip.innerHTML = target.getAttribute('data-tooltip');
+      document.body.appendChild(tooltip);
 
-  const offsetX = 12;
-  const offsetY = 12;
+      const offsetX = 12;
+      const offsetY = 12;
 
-  // 마우스 움직임에 따라 툴팁 위치 변경
-  function moveTooltip(ev) {
-    tooltip.style.left = `${ev.clientX + offsetX}px`;
-    tooltip.style.top = `${ev.clientY + offsetY}px`;
-    tooltip.style.position = 'fixed'; // 꼭 fixed로 설정!
-  }
+      function moveTooltip(ev) {
+        tooltip.style.left = `${ev.clientX + offsetX}px`;
+        tooltip.style.top = `${ev.clientY + offsetY}px`;
+        tooltip.style.position = 'fixed';
+      }
 
-  moveTooltip(e); // 초기 위치
-  target.addEventListener('mousemove', moveTooltip);
+      moveTooltip(e);
+      target.addEventListener('mousemove', moveTooltip);
 
-  // 마우스 나가면 툴팁 삭제
-  target.addEventListener('mouseleave', () => {
-    tooltip.remove();
-    target.removeEventListener('mousemove', moveTooltip);
-  }, { once: true });
-});
+      target.addEventListener('mouseleave', () => {
+        tooltip.remove();
+        target.removeEventListener('mousemove', moveTooltip);
+      }, { once: true });
+    });
 
   } else {
     document.getElementById('character-info').innerHTML = '<p>캐릭터 정보를 찾을 수 없습니다.</p>';

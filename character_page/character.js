@@ -31,7 +31,7 @@ Promise.all([
 
     thumbnails.forEach((thumb, i) => {
       const keyThumb = imageMap[i].thumb;
-      thumb.src = character[keyThumb] || '';
+      thumb.src = character[keyThumb] ? '../' + character[keyThumb] : '';
       thumb.addEventListener('click', () => {
         currentIndex = i;
         updateImage(currentIndex);
@@ -40,7 +40,7 @@ Promise.all([
 
     function updateImage(index) {
       const keyFull = imageMap[index].full;
-      mainImg.src = character[keyFull] || '';
+      mainImg.src = character[keyFull] ? '../' + character[keyFull] : '';
       thumbnails.forEach((thumb, i) => {
         thumb.classList.toggle('active', i === index);
       });
@@ -121,7 +121,7 @@ Promise.all([
 
     // 스킬 이미지
     const skillImg = document.getElementById('image-skill');
-    skillImg.src = character['image-skill'] || '';
+    skillImg.src = character['image-skill'] ? '../' + character['image-skill'] : '';
 
     // 스킬1 이름
     const skill_name1 = document.getElementById('skill_name');

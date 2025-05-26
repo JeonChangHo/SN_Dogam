@@ -16,15 +16,15 @@ Promise.all([
   if (character) {
     const mainImg = document.getElementById('character-img');
     const thumbnails = [
-      document.getElementById('image-sum'),
-      document.getElementById('image-sum2'),
-      document.getElementById('image-sum3')
+      document.getElementById('image-mini'),
+      document.getElementById('image-mini2'),
+      document.getElementById('image-mini3')
     ];
 
     const imageMap = [
-      { thumb: 'image-sum', full: 'image-full' },
-      { thumb: 'image-sum2', full: 'image-full2' },
-      { thumb: 'image-sum3', full: 'image-full3' }
+      { thumb: 'image-mini', full: 'image-full' },
+      { thumb: 'image-mini2', full: 'image-full2' },
+      { thumb: 'image-mini3', full: 'image-full3' }
     ];
 
     let currentIndex = 0;

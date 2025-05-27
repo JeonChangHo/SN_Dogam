@@ -129,6 +129,37 @@ Promise.all([
     const skillImg = document.getElementById('image-skill');
     skillImg.src = addBasePath(character['image-skill']);
 
+    function resizeImages() {
+  const mainImg = document.getElementById('character-img');
+  const skillImg = document.getElementById('image-skill');
+  const thumbnails = document.querySelectorAll('.thumbnail');
+
+  [mainImg, skillImg, ...thumbnails].forEach(img => {
+    img.onload = () => {
+      const containerWidth = img.parentElement.clientWidth;
+      const containerHeight = img.parentElement.clientHeight;
+      const aspectRatio = img.naturalWidth / img.naturalHeight;
+
+      if (img.naturalWidth > containerWidth || img.naturalHeight > containerHeight) {
+        if (containerWidth / containerHeight > aspectRatio) {
+          img.style.height = '100%';
+          img.style.width = 'auto';
+        } else {
+          img.style.width = '100%';
+          img.style.height = 'auto';
+        }
+      } else {
+        img.style.width = 'auto';
+        img.style.height = 'auto';
+      }
+    };
+  });
+}
+
+// 호출!
+resizeImages();
+window.addEventListener('resize', resizeImages);
+
     // 스킬1 이름
     const skill_name1 = document.getElementById('skill_name');
     const descText = (skillInfo.skill_name || '-').replace(/\n/g, '<br>');

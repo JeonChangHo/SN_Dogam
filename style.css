@@ -35,10 +35,12 @@ nav .nav-btn {
 .nav-btn.active {
   background-color: #4caf50;
   color: white;
+  border-radius: 4px;  /* 둥근 모서리 유지 */
+  box-shadow: 0 0 0 2px #388e3c; /* 네모 느낌 강조 */
 }
 
 main {
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
 }
 
@@ -58,7 +60,7 @@ main {
 #filters {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  margin-bottom: 40px;
 }
 
 .filter-box button {

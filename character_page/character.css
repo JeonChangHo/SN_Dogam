@@ -25,11 +25,10 @@ header {
 }
 
 .character-image img {
-  max-width: 100%;  /* 캐릭터 이미지 크기 */
-  height: auto;
+  width: 700px;  /* 캐릭터 이미지 크기 */
+  height: 500px;
   border-radius: 8px;
   margin-bottom: 30px; /* 👉 캐릭터 이미지와 썸네일 사이 여백 사이즈 조절 */
-  object-fit: contain;
 }
 
 .character-details {
@@ -75,7 +74,7 @@ header {
 
 .thumbnail {
   max-width: 120px;   /* 원하는 썸네일 사이즈로 조정 */
-  height: auto;
+  max-height: 160px;
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 8px;
@@ -134,8 +133,8 @@ h2,h3 {
 }
 
 .skill-icon img {
-  max-width: 64px;
-  height: auto;
+  width: 64px;
+  height: 64px;
   border-radius: 8px;
   margin-right: 15px;
 }

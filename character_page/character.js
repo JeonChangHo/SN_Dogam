@@ -129,6 +129,8 @@ Promise.all([
     const skillImg = document.getElementById('image-skill');
     skillImg.src = addBasePath(character['image-skill']);
 
+    
+    // 이미지 자동 리사이징 함수
     function resizeImages() {
   const mainImg = document.getElementById('character-img');
   const skillImg = document.getElementById('image-skill');

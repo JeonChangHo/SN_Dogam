@@ -120,3 +120,43 @@ main {
   color: white;
   font-weight: bold;
 }
+
+@media (max-width: 900px) {
+  main {
+    flex-direction: column; /* 좌우 → 세로로 변경 */
+  }
+
+  .filter-box {
+    width: 100%;    /* 필터 박스가 화면 꽉 채우게 */
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  #filters {
+    flex-direction: column; /* 구분1, 구분2 세로 정렬 유지 */
+    gap: 20px;
+  }
+
+  #cards {
+    justify-content: center; /* 카드 가운데 정렬 */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;  /* 모바일 폰트 약간 축소 */
+  }
+
+  nav .nav-btn {
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin: 3px 2px;
+  }
+
+  .filter-box button,
+  .data1-btn,
+  .data2-btn {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}

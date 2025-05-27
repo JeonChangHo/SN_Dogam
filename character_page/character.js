@@ -1,5 +1,10 @@
 // character.js
 
+// 경로 앞에 '../'를 붙여주는 함수
+function addBasePath(path) {
+  return path ? '../' + path : '';
+}
+
 Promise.all([
   fetch('../dogam_info/character_info.json').then(res => res.json()),
   fetch('../dogam_info/character_profile.json').then(res => res.json()),

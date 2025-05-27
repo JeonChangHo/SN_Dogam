@@ -72,6 +72,22 @@ header {
   margin-top: 15px;
 }
 
+/* 메인 이미지 아래에 썸네일 + 화살표 가로 배치 */
+.image-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* 썸네일 묶음 가로 정렬 */
+.thumbnails {
+  display: flex;
+  gap: 10px;
+}
+
 .thumbnail {
   max-width: 120px;   /* 원하는 썸네일 사이즈로 조정 */
   max-height: 160px;
@@ -95,7 +111,7 @@ header {
   cursor: pointer;
   user-select: none;
   position: relative;   /* 위치 조정 가능하게 */
-  top: -100px;            /* 살짝 위로 올림 (값은 조절 가능) */
+  top: -20px;            /* 살짝 위로 올림 (값은 조절 가능) */
 }
 
 h2,h3 {
@@ -194,4 +210,61 @@ h2,h3 {
 
 [data-tooltip] {
   cursor: help;
+}
+
+
+/* 모바일에서 이미지, 텍스트 반반 배치 */
+@media (max-width: 768px) {
+  .character-container {
+    flex-direction: column; /* 세로로 쌓기 */
+  }
+
+  .character-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 700px; /* PC 이미지 최대 너비와 맞춤 */
+    width: 100%;
+  }
+
+  .character-image img {
+    width: auto;         /* 너비 자동 조절 */
+    height: 500px;       /* 높이 고정 */
+    max-width: 100%;     /* 부모 너비보다 크지 않게 제한 */
+    object-fit: cover;   /* 이미지 비율 유지하며 꽉 채우기 */
+    border-radius: 8px;
+  }
+
+  .character-details {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 0 10px;
+  }
+
+  .thumbnail {
+    max-width: 100px;
+    flex-shrink: 0;
+    cursor: pointer;
+    height: auto; /* 썸네일 원래 사이즈 */
+  }
+
+  #left-arrow, #right-arrow {
+    font-size: 48px;
+    position: relative;
+    top: 0;
+  }
+
+  .character-details {
+    margin-top: -60px;
+  }
 }

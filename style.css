@@ -19,7 +19,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap : 10px;
+  gap : 30px;
 }
 
 nav {
@@ -27,16 +27,22 @@ nav {
   gap: 10px;               /* 버튼 사이 간격 */
 }
 
-nav .nav-btn {
+/* 기존 코드: 모든 버튼 기본 모양 */
+.nav-btn {
   margin: 0 5px;
   padding: 10px 16px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 12px; /* <-- 여기! 둥근 정도를 조절 */
+  font-size: 1.1rem;
 }
 
 .nav-btn.active {
   background-color: #4caf50;
   color: white;
-  border-radius: 4px;  /* 둥근 모서리 유지 */
-  box-shadow: 0 0 0 2px #388e3c; /* 네모 느낌 강조 */
+  font-weight: bold;
+  border-radius: 12px; /* <-- active도 둥근 모서리 유지 */
 }
 
 main {
@@ -124,7 +130,7 @@ main {
   font-weight: bold;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
   main {
     flex-direction: column;
   }
@@ -142,6 +148,18 @@ main {
   }
 
   #cards {
-    justify-content: center;
+    gap: 10px; /* 모바일에서는 카드 간격 좁히기 */
+  }
+
+  .card {
+    flex: 1 1 calc(33.333% - 10px); /* 한 줄에 3개씩 (100% ÷ 3) */
+    max-width: calc(33.333% - 10px); /* 카드 최대 너비도 3등분 */
+    height: auto; /* 높이는 이미지 비율에 따라 자동 */
+  }
+
+  .card img {
+    width: 100%;
+    height: auto; /* 세로 비율은 자동 */
+    object-fit: contain;
   }
 }
